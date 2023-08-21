@@ -11,7 +11,7 @@ import "../static/css/index.css";
 
 const App = () => {
     return (
-        <div className="App">
+        <div> //className="App"
             <Router>
                  <Navbar />
                     <Routes>
@@ -25,6 +25,7 @@ const App = () => {
     );
 }
 
-const appDiv = document.getElementById("app");
-render(<App />, appDiv);
+// const appDiv = document.getElementById("app");
+// render(<App />, appDiv);
+export default App;
 
