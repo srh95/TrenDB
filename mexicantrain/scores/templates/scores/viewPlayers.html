@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1 class="text-center">Player List</h1>
+    {% for player in player_list%}
+    <h2>{{player.first_name}} {{player.last_name}}</h2>
+
+    {% endfor %}
+
+    <h1>Add Player</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            {% block content %}
+            <div class="txt_field">
+                <input id="first_name" type="text" name="first_name" required>
+                <label>First Name</label>
+            </div>
+            <div class="txt_field">
+                <input id="last_name" type="text" name="last_name" required>
+                <label>Last Name</label>
+            </div>
+
+            <input type="submit" value="Add Player">
+            {% endblock %}
+        </form>
+
+
+
+</body>
+</html>
