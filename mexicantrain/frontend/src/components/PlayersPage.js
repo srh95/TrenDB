@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import "../static/css/index.css";
+
 
 export default class PlayersPage extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ export default class PlayersPage extends Component {
 
   render() {
     return (
-      <div className="center">
+      <div className="App">
         <table>
           <tr>
             <th>First Name</th>
@@ -43,7 +45,6 @@ export default class PlayersPage extends Component {
           })}
         </table>
       </div>
-    
     );
   }
 

@@ -5,24 +5,43 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./static/frontend"),
-    filename: "main.js",
+    filename: "main.js", 
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        // include: [path.resolve(__dirname, 'src')],
         use: {
           loader: "babel-loader",
         },
       },
-
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   include: path.resolve(__dirname, 'src'),
+      //   exclude: /(node_modules|bower_components|build)/,
+      //   use: ['babel-loader']
+      // }
     ],
   },
+
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  },
+
   optimization: {
     minimize: true,
   },
@@ -35,3 +54,4 @@ module.exports = {
     }),
   ],
 };
+
