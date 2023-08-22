@@ -6,12 +6,13 @@ import PlayersPage from "./PlayersPage.js";
 import LoginPage from "./LoginPage.js";
 import { BrowserRouter as Router, Routes, Route, Link, Redirect } from "react-router-dom";
 import Navbar from './Navbar';
-import "../static/css/index.css";
+import ReactDOM from 'react-dom'
+// import "/Users/sophiahall/Documents/TrenDB/mexicantrain/frontend/static/css/index.css";
 
 
 const App = () => {
     return (
-        <div> //className="App"
+        <div className="App">
             <Router>
                  <Navbar />
                     <Routes>
@@ -21,11 +22,23 @@ const App = () => {
                         <Route exact path='/login' element={< LoginPage />}></Route>
                     </Routes>
             </Router>
+            <div> HI</div>
         </div>
+    
     );
 }
+ReactDOM.render(<App />, document.getElementById('app'));
 
 // const appDiv = document.getElementById("app");
 // render(<App />, appDiv);
-export default App;
 
+// import React from 'react'
+// import ReactDOM from 'react-dom'
+
+// const App = () => {
+//     return (
+//         <p>Hello World!</p>
+//     );
+// }
+
+// ReactDOM.render(<App />, document.getElementById('app'));

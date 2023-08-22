@@ -1,19 +1,21 @@
-<!-- {% load render_bundle from webpack_loader %} -->
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name='viewport' content="width=device-width, initial-scale=1" />
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mexican Train</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
-</head>
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+    />
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"
+    />
+  </head>
+  <body>
     <div id="main">
-        <div id="app"></div>
+      <div id="app"></div>
     </div>
-</body>
 
-<script src="{% static 'frontend/main.js' %}"></script>
+    <script src="{% static "frontend/main.js" %}"></script>
+  </body>
 </html>
