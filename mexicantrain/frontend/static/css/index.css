@@ -1,9 +1,18 @@
-.App {
+.Table {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.img-container{
+    width: 40px;
+    height: 40px;
+    /* position: absolute; */
+    left: 50px; 
+    top: 20px;
+
 }
  
 table {
@@ -11,6 +20,11 @@ table {
     width: 800px;
     height: 200px;
 }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
  
 th {
     border-bottom: 1px solid black;

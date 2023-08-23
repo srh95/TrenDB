@@ -7,16 +7,14 @@ import {
   NavBtn,
   NavBtnLink,
 } from './NavbarElements';
-// import { ReactComponent as Logo } from './TrenDB.svg';
+import Logo from './TrenDB.png';
   
 const Navbar = () => {
   return (
     <>
       <Nav>
-        <h1>TrenDB</h1>
-      {/* <img src="./TrenDB.svg" alt="bug" height={100} /> */}
-      {/* <img src={logo} /> */}
-      {/* <Logo height={100} /> */}
+      <img style={{ width: 100, height: 100, left: 100, top: 0 }} src={Logo} alt="bug"/> 
+        {/* <h1>TrenDB</h1> */}
         <Bars />
         <NavMenu>
           <NavLink to='/' activeStyle>

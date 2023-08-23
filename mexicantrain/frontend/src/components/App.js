@@ -10,8 +10,7 @@ import Navbar from './Navbar';
 
 
 const App = () => {
-    render();
-    return(
+    return (
         <div>
             <Router>
                 <Navbar />
@@ -25,8 +24,9 @@ const App = () => {
         </div>
     );
 }
-
-export default App;
+const appDiv = document.getElementById("app");
+render(<App />, appDiv);
+// export default App;
 
 // export default class App extends Component {
 //         constructor(props) {

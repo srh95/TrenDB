@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import Modal from "./Modal";
 
 
 export default class PlayersPage extends Component {
@@ -27,7 +28,7 @@ export default class PlayersPage extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="center">
         <table>
           <tr>
             <th>First Name</th>
@@ -43,6 +44,8 @@ export default class PlayersPage extends Component {
             )
           })}
         </table>
+        {/* <button className="Add">Add New Player</button> */}
+        <Modal></Modal>
       </div>
     );
   }
