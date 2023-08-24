@@ -1,20 +1,35 @@
 import React from "react";
+import "/Users/sophiahall/Documents/TrenDB/mexicantrain/frontend/static/css/modal.css";
 
-function Modal(){
-    return(
+function Modal({closeModal}) {
+
+    return (
         <div className="modalBackground">
             <div className="modalContainer">
-                <button> X </button>
+                <div className="titleCloseBtn">
+                    <button onClick={() => closeModal(false)}> X </button>
+                </div>
                 <div className="title">
                     <h1> Add a player</h1>
                 </div>
                 <div className="body" >
-                    <p> Enter player's first and last name</p>
-                    {/* <input type="text" id="fname" name="fname">First Name</input>
-                    <input type="text" id="lname" name="lname">Last Name</input> */}
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="First Name"
+                />
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="Last Name"
+                />
+                    
+                
                 </div>
                 <div className="footer">
-                    <button>Cancel</button>
+                    <button onClick={() => closeModal(false)}>Cancel </button>
                     <button>Submit</button>
                 </div>
             </div>

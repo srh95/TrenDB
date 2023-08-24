@@ -8,12 +8,12 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 import Logo from './TrenDB.png';
-  
+
 const Navbar = () => {
   return (
     <>
       <Nav>
-      <img style={{ width: 100, height: 100, left: 100, top: 0 }} src={Logo} alt="bug"/> 
+          <img style={{ width: 170, height: 120, left: 100, marginTop: -20 }} src={Logo} alt="logo" />
         {/* <h1>TrenDB</h1> */}
         <Bars />
         <NavMenu>
@@ -36,5 +36,5 @@ const Navbar = () => {
     </>
   );
 };
-  
+
 export default Navbar;

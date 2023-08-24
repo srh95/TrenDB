@@ -1,41 +1,37 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Modal from "./Modal";
+import "/Users/sophiahall/Documents/TrenDB/mexicantrain/frontend/static/css/index.css";
 
 
-export default class PlayersPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-    };
-  }
+const PlayersPage = () => {
 
-  fetchData() {
-    fetch("http://127.0.0.1:8000/api/")
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          data: data
-        });
-      });
-  }
+  const [data, setData] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
-  componentDidMount() {
-    this.fetchData();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  }
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/api/');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-  render() {
     return (
-      <div className="center">
+    <>
+      <div className="center-container">
         <table>
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
           </tr>
 
-          {this.state.data.map(Players => {
+          {data.map((Players) => {
             return (
               <tr key={Players.id}>
                 <td> {Players.first_name}</td>
@@ -44,10 +40,20 @@ export default class PlayersPage extends Component {
             )
           })}
         </table>
-        {/* <button className="Add">Add New Player</button> */}
-        <Modal></Modal>
-      </div>
+        
+        <button 
+          className="Add" 
+          onClick={() => {
+            setOpenModal(true)
+          }}
+        >
+          Add New Player
+        </button>
+        {openModal && <Modal closeModal={setOpenModal}/>}
+        </div>
+      </>
     );
-  }
 
 }
+
+export default PlayersPage;
