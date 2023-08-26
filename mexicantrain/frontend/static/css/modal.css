@@ -4,7 +4,6 @@
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
     backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
     z-index: 0; /* Place it behind the modal */
-    /* background-color: rgba(200, 200, 200); */
     position: fixed;
     display: flex;
     justify-content: center;

@@ -50,6 +50,7 @@ const PlayersPage = () => {
           Add New Player
         </button>
         {openModal && <Modal closeModal={setOpenModal}/>}
+        {/* {openModal && <Modal onClose={setOpenModal(false)} />} */}
         </div>
       </>
     );
