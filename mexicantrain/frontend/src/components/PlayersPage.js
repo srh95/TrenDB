@@ -8,10 +8,15 @@ const PlayersPage = () => {
 
   const [data, setData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+
+  const refreshData = () => {
+    setRefresh(!refresh);
+  };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [refresh]);
 
   const fetchData = async () => {
     try {
@@ -21,6 +26,13 @@ const PlayersPage = () => {
       console.error('Error fetching data:', error);
     }
   };
+
+  const handleModalClose = (success) => {
+    setOpenModal(false);
+    if (success) {
+        setRefresh(!refresh); // Toggle refresh to trigger page refresh
+    }
+};
 
     return (
     <>
@@ -49,7 +61,9 @@ const PlayersPage = () => {
         >
           Add New Player
         </button>
-        {openModal && <Modal closeModal={setOpenModal}/>}
+        {/* {openModal && <Modal onClose={() => setOpenModal(false)} />} */}
+        {/* {openModal && <Modal onClose={handleModalClose} />} */}
+        {openModal && <Modal onClose={handleModalClose} onRefresh={refreshData} />}
         {/* {openModal && <Modal onClose={setOpenModal(false)} />} */}
         </div>
       </>
@@ -58,3 +72,9 @@ const PlayersPage = () => {
 }
 
 export default PlayersPage;
+
+// Issues to fix later: 
+//  Table hits nav bar when too many players added 
+// add player button positioning 
+// error messages for not inputting anything 
+// Delete player? maybe

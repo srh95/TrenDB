@@ -3,12 +3,18 @@ import "/Users/sophiahall/Documents/TrenDB/mexicantrain/frontend/static/css/moda
 import axios from 'axios';
 
 
-function Modal({ closeModal }) {
+function Modal({ onClose }) { 
 
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
     });
+
+    const [error, setError] = useState(null);
+
+    const handleCancel = () => {
+        onClose(false); 
+    };
 
 
     const handleInputChange = (event) => {
@@ -25,18 +31,25 @@ function Modal({ closeModal }) {
           const response = await axios.post('http://127.0.0.1:8000/api/', formData);
           console.log('API response:', response.data);
           // Handle success or show a success message
+
+          if(response.status === 201){  //onClose();
+            onClose(true);  
+            onRefresh();
+            console.log('Success')
+        } else{
+            setError('An error occurred while submitting the data.'); // Set error message
+        }
         } catch (error) {
           console.error('Error posting data:', error);
-          // Handle error or show an error message
+          setError('An error occurred while communicating with the server.'); // Set error message
         }
-        onclose();
       };
 
     return (
         <div className="modalBackground">
             <div className="modalContainer">
                 <div className="titleCloseBtn">
-                    <button onClick={() => closeModal(false)}> X </button>
+                    <button onClick={handleCancel}> X </button>
                 </div>
                 <div className="title">
                     <h1> Add a player</h1>
@@ -64,9 +77,10 @@ function Modal({ closeModal }) {
 
                     </div>
                     <div className="footer">
-                        <button onClick={() => closeModal(false)}>Cancel </button>
+                    <button onClick={() => onClose && onClose(false)}>Cancel</button>
                         <button type="submit">Submit</button>
                     </div>
+                    {error && <div className="error-message">{error}</div>} {/* Display error message */}
                 </form>
             </div>
         </div >
