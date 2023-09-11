@@ -26,6 +26,12 @@ const Navbar = () => {
           <NavLink to='/games/addGame' activeStyle>
             Add a Game
           </NavLink>
+          <NavLink to='/games' activeStyle>
+            Games
+          </NavLink>
+          <NavLink to='/stats' activeStyle>
+            Stats
+          </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>

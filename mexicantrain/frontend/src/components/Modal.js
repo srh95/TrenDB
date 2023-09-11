@@ -28,7 +28,7 @@ function Modal({ onClose }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-          const response = await axios.post('http://127.0.0.1:8000/api/', formData);
+          const response = await axios.post('http://127.0.0.1:8000/api/players', formData);
           console.log('API response:', response.data);
           // Handle success or show a success message
 

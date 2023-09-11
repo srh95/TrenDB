@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import ReactDOM from "react-dom";
 import HomePage from "./HomePage.js";
 import AddGamePage from "./AddGamePage.js";
 import PlayersPage from "./PlayersPage.js";
 import LoginPage from "./LoginPage.js";
+import GamesPage from "./GamesPage.js";
+import StatsPage from "./StatsPage.js";
 import { BrowserRouter as Router, Routes, Route, Link, Redirect } from "react-router-dom";
 import Navbar from './Navbar';
 
@@ -18,6 +19,8 @@ const App = () => {
                     <Route exact path='/' element={< HomePage />}></Route>
                     <Route exact path='/games/addGame' element={< AddGamePage />}></Route>
                     <Route exact path='/players' element={< PlayersPage />}></Route>
+                    <Route exact path='/games' element={< GamesPage />}></Route>
+                    <Route exact path='/stats' element={< StatsPage />}></Route>
                     <Route exact path='/login' element={< LoginPage />}></Route>
                 </Routes>
             </Router>

@@ -21,7 +21,7 @@ from user_api import views as uviews
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
-    path('api/', sviews.PlayersView.as_view(), name='Players'),
+    path('api/players', sviews.PlayersView.as_view(), name='Players'),
     # path('api/', include(router.urls)),
     # path('api/', include('user_api.urls')),
     # path('.', include('django.contrib.auth.urls'))
