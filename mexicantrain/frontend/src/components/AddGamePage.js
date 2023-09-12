@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from 'axios';
-import "/Users/sophiahall/Documents/TrenDB/mexicantrain/frontend/static/css/index.css";
+import "/Users/sophiahall/Documents/TrenDB/mexicantrain/frontend/static/css/gameEntry.css";
 
 
 const AddGamePage = () => {
 
-    const [players, setPlayers] = useState([]);
-    const [selectedPlayers, setSelectedPlayers] = useState([]);
-    const [rowCount, setRowCount] = useState(1);
+    const [players, setPlayers] = useState([]); // state to store players
+    const [selectedPlayers, setSelectedPlayers] = useState([]); // state to store players which have been selected
+    const [rowCount, setRowCount] = useState(1); // state to store number of rows in the table
+    const [scores, setScores] = useState([]); // State to store scores
 
 
     useEffect(() => {
@@ -47,6 +48,21 @@ const AddGamePage = () => {
     const availablePlayers = players.filter((p) => !selectedPlayers.includes(p.id));
     console.log('Available Players:', availablePlayers); // Debugging output
 
+     // Function to handle score changes in a specific cell
+     const handleScoreChange = (rowIndex, colIndex, value) => {
+        const updatedScores = [...scores];
+        updatedScores[rowIndex][colIndex] = parseFloat(value) || 0; // Convert value to a number
+        setScores(updatedScores);
+    };
+
+    // Function to calculate the total for a specific row
+    const calculateRowTotal = (rowIndex) => {
+        const rowScores = scores[rowIndex];
+        const rowTotal = rowScores.reduce((total, score) => total + score, 0);
+        return rowTotal;
+    };
+
+
     return (
         <>
             <div className="center-container">
@@ -79,21 +95,28 @@ const AddGamePage = () => {
                                         value={selectedPlayers[rowIndex] || ''}
                                     >
                                         <option value="">Select a player</option>
-                                        {availablePlayers.map((p) => (
+                                        {players.map((p) => (
                                             <option key={p.id} value={p.id}>
                                                 {`${p.first_name} ${p.last_name}`}
                                             </option>
                                         ))}
                                     </select>
                                 </td>
-                                <td>{/* Render content for column 2 based on selected player */}</td>
-                                <td>{/* Render content for column 3 based on selected player */}</td>
-                                <td>{/* Render content for column 4 based on selected player */}</td>
-                                <td>{/* Render content for column 5 based on selected player */}</td>
-                                <td>{/* Render content for column 6 based on selected player */}</td>
-                                <td>{/* Render content for column 7 based on selected player */}</td>
-                                <td>{/* Render content for column 8 based on selected player */}</td>
-
+                                {/* Add number input boxes for scores */}
+                                {scores[rowIndex].map((score, colIndex) => (
+                                    <td key={colIndex}>
+                                        <input
+                                            type="number"
+                                            className="small-input"
+                                            value={score}
+                                            onChange={(e) => handleScoreChange(rowIndex, colIndex, e.target.value)}
+                                            onBlur={() => { /* You can add any additional logic here */ }}
+                                        />
+                                    </td>
+                                ))}
+                                
+                                {/* Add more columns for scores here */}
+                                <td>{calculateRowTotal(rowIndex)}</td>
                             </tr>
                         ))}
                         <tr>
