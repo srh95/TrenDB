@@ -1,0 +1,35 @@
+body {
+    font-family: "Palatino", "URW Palladio L", serif; 
+}
+
+.container {
+    max-width: 1300px; /* Set the maximum width for the container */
+    padding: 0 20px; /* Add some padding on the sides for spacing */
+}
+
+.large-text {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.small-container {
+    max-width: 500px; /* Set the maximum width for the small container */
+    margin-top: 40px; /* Add some margin between large and small containers */
+}
+
+.small-paragraph {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.image-container {
+    margin: 0 auto 0 50%; /* Center the image horizontally and offset it to the right by 50% */
+    max-width: 50%; 
+    margin-top: -250px;
+}
+
+.image-container img {
+    display: block;
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+}

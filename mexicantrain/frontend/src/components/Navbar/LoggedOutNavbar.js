@@ -9,7 +9,7 @@ import {
 } from './NavbarElements';
 import Logo from './TrenDB.png';
 
-const Navbar = () => {
+const LoggedOutNavbar = () => {
   return (
     <>
       <Nav>
@@ -20,17 +20,11 @@ const Navbar = () => {
           <NavLink to='/' activeStyle>
             Home
           </NavLink>
-          <NavLink to='/players' activeStyle>
-            Players
+          <NavLink to='/about' activeStyle>
+            About the Game
           </NavLink>
-          <NavLink to='/games/addGame' activeStyle>
-            Add a Game
-          </NavLink>
-          <NavLink to='/games' activeStyle>
-            Games
-          </NavLink>
-          <NavLink to='/stats' activeStyle>
-            Stats
+          <NavLink to='/about' activeStyle>
+            Score a Game
           </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
@@ -43,4 +37,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default LoggedOutNavbar;

@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
-    backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
+    backdrop-filter: blur(8px); /* Adjust the blur intensity */
     z-index: 0; /* Place it behind the modal */
     position: fixed;
     display: flex;

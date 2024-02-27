@@ -10,4 +10,5 @@ urlpatterns = [
     path('stats/', index),
     path('login/', index),
     path('createAccount/', index),
+    path('userhome/', index),
 ]
