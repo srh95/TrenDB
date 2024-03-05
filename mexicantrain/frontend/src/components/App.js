@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 
 import { render } from "react-dom";
-import HomePage from "./HomePage.js";
+import HomePage from "./Home/HomePage.js";
 import AddGamePage from "./AddGamePage.js";
 import PlayersPage from "./PlayersPage.js";
 import LoginPage from "./LoginPage.js";

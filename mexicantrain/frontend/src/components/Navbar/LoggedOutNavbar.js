@@ -7,13 +7,15 @@ import {
   NavBtn,
   NavBtnLink,
 } from './NavbarElements';
-import Logo from './TrenDB.png';
+import Logo from './TrenDB2.png';
 
 const LoggedOutNavbar = () => {
   return (
     <>
+    <div className="nav-container"> 
+      <div className="triangle"> </div>
+      <img src={Logo} className="logo" alt="logo" />
       <Nav>
-          <img style={{ width: 170, height: 120, left: 100, marginTop: -20 }} src={Logo} alt="logo" />
         {/* <h1>TrenDB</h1> */}
         <Bars />
         <NavMenu>
@@ -23,7 +25,7 @@ const LoggedOutNavbar = () => {
           <NavLink to='/about' activeStyle>
             About the Game
           </NavLink>
-          <NavLink to='/about' activeStyle>
+          <NavLink to='/games/addGame' activeStyle>
             Score a Game
           </NavLink>
           {/* Second Nav */}
@@ -33,6 +35,7 @@ const LoggedOutNavbar = () => {
           <NavBtnLink to='/login'>Log In</NavBtnLink>
         </NavBtn>
       </Nav>
+      </div>
     </>
   );
 };
