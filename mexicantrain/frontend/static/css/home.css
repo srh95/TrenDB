@@ -42,8 +42,13 @@
 .bottom-section {
     /*display: flex; /* Use flexbox to horizontally align rectangles */
     /*justify-content: space-between; /* Distribute space between rectangles */
+    display: flex;
     background-color: #354c9c; /* Set background color for the bottom section */
     padding: 300px 0; /* Add padding to top and bottom of the section */
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; 
+
 }
 
 /* Add padding to the sides within the container */
@@ -51,17 +56,19 @@
   display: flex;
   justify-content: space-between;
   padding: 0 40px; /* Adjust padding to match the container's padding */
-  position: relative;
+  max-width: 1300px; /* Optional: Set maximum width for the inner container */
+  width: 100%;
+  /* position: relative; */
 }
 
 .bottom-section .header-text {
-    position: absolute;
+    position: absolute; 
     font-size: 62px;
     text-align: center;
     width: 100%; /* Take up full width of parent container */
     left: 50%; /* Position the text at vertical center */
     transform: translateX(-50%); /* Center the text vertically */
-    top: -185px;
+    margin-top: -185px;
     color: black;
 }
 
@@ -71,4 +78,36 @@
   background-color: #EFE2BA;; /* Set background color for rectangles */
   border-radius: 10px; /* Add border radius to create rounded corners */
   margin: 0 50px; /* Add some space between rectangles */
+}
+
+.rectangle .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.rectangle .image {
+  position: absolute;
+  width: 250px; /* Adjust the width of the image */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 180px;
+  margin-top: -60px;
+}
+
+.rectangle .large-text {
+  position: absolute;
+  margin-top: -40px; /* Adjust spacing between image and large text */
+  text-align: center; /* Center align the large text */
+  font-size: 20px;
+  margin-left: 6px;
+}
+
+.rectangle .small-text {
+  position: absolute;
+  margin-top: 160px;; /* Push small text to the bottom */
+  text-align: center; /* Center align the small text */
+  font-size: 14px;
+  max-width: 20%;
 }
